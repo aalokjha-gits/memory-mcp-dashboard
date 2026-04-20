@@ -1,0 +1,46 @@
+{
+  "name": "memory-mcp-dashboard",
+  "version": "0.1.0",
+  "description": "A cyberpunk-themed web dashboard for browsing and inspecting the memory store that powers @aalokjha/mem-aj — semantic search, neural graph visualization, same storage backends.",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm run dev -w server\" \"npm run dev -w web\"",
+    "build": "npm run build -w server && npm run build -w web",
+    "start": "node server/dist/index.js",
+    "test": "npm test -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "clean": "rm -rf server/dist web/dist && find . -name node_modules -type d -prune -exec rm -rf '{}' +"
+  },
+  "keywords": [
+    "memory-mcp",
+    "dashboard",
+    "mcp",
+    "memory",
+    "visualization",
+    "vector-search",
+    "qdrant",
+    "neural-graph"
+  ],
+  "author": "Aalok Jha <aalokaj59@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aalokjha-gits/memory-mcp-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aalokjha-gits/memory-mcp-dashboard/issues"
+  },
+  "homepage": "https://github.com/aalokjha-gits/memory-mcp-dashboard#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.9.3"
+  }
+}
